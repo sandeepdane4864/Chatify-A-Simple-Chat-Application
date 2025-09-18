@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/edit.css">
+</head>
+<body>
+    <div class="header">
+        <h1 class="head">Chatify</h1>
+    </div>
+
+    <div class="container">
+        <form action="/chats/<%=chat._id%>?_method=PUT" method="post">
+            <h3 class="subhead">Edit Chat id : <%=chat._id%></h3>
+            <p id="from">Sent from : <i><%= chat.from%></i></p>
+            <label for="message">Message :</label>
+            <br>
+            <textarea id="message" name="message" required ><%=chat.message%></textarea>
+            <p id="to">To: <i><%= chat.to %></i></p>
+            <button class="donebtn" type="submit">Update</button>
+        </form>
+    </div>
+</body>
+</html>

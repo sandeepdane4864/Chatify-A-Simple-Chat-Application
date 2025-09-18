@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatify : A Simple Chat Application</title>
+    <link rel="stylesheet" href="style.css ">
+</head>
+
+<body>
+    <h1 class="head">Chatify</h1>
+
+
+<div class="header-row">
+  <p class="subhead">All Messages</p>
+  <ul>
+    <li>
+      <form action="/chats/new" method="get">
+        <button class="newbtn">New Chat</button>
+      </form>
+    </li>
+  </ul>
+</div>
+
+    <%for(let chat of chats){%>
+    <div class="container">
+            <p id="from">Sent from : <i><%= chat.from%></i></p>
+            <div class="msg">
+                <p><%= chat.message%></p>
+            </div>
+            <p id="to">Received to: <i><%= chat.to%></i></p>
+            <p id="time">Time&Date: <%= chat.timestamp.toString().split(" ")[4]%>,<%= chat.timestamp.toString().split(" ").slice(0,4).join("-")%></p>
+            <form action="/chats/<%=chat._id%>/edit" method="get">
+                 <button class="editbtn" type="submit">Edit</button>
+            </form>
+           <form method="POST" action="/chats/<%= chat._id %>?_method=DELETE" 
+      onsubmit="return confirm('Are you sure you want to delete this chat?');">
+    <button class="delbtn" type="submit">Delete</button>
+</form>
+            
+    </div>
+    <%}%>
+</body>
+
+</html>
