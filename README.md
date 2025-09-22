@@ -20,5 +20,3 @@ Backend: Node.js, Express.js
 Database: MongoDB, Mongoose
 
 Frontend: EJS, HTML, CSS
-
-Tools: Method-Override, Nodemon
