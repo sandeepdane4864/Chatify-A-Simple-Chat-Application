@@ -10,6 +10,7 @@ const http = require('http');
 const Chat = require('./models/chat');
 
 // SERVER + SOCKET
+
 const server = http.createServer(app);
 const { Server } = require('socket.io');
 const io = new Server(server);
